@@ -44,11 +44,12 @@ class PetsController < ApplicationController
       owner = Owner.create(name: params[:owner][:name])
       @pet.owner = owner
       @pet.save
+      binding.pry
     elsif params[:pet][:owner_id] != @pet.owner_id
       @pet.owner_id = params[:owner_id]
       @pet.save
     end
-    binding.pry
+
   end
 
 #   {"_method"=>"patch",
