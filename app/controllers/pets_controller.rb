@@ -37,7 +37,7 @@ class PetsController < ApplicationController
   end
 
   patch '/pets/:id' do
-    binding.pry
+
     @pet = Pet.find_by_id(params[:id])
     @pet.update(params[:pet])
     if !params[:owner][:name].empty?
@@ -48,7 +48,7 @@ class PetsController < ApplicationController
       @pet.owner_id = params[:owner_id]
       @pet.save
     end
-
+    binding.pry
   end
 
 #   {"_method"=>"patch",
