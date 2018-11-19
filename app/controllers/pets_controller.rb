@@ -40,9 +40,17 @@ class PetsController < ApplicationController
     binding.pry
     @pet = Pet.find_by_id(params[:id])
     @pet.update(params[:pet])
-    @pet.owner_id = (params[:pet][:owner_id])
+    if !params[:owner][:name].empty?
+      owner = Owner.create(name: params[:owner][:name])
+      @pet.owner = owner
+      @pet.save
 
   end
+
+#   {"_method"=>"patch",
+# "pet"=>{"name"=>"Maddy", "owner_id"=>"6"},
+# "owner"=>{"name"=>"BBBBB"},
+# "id"=>"1"}
 
   # patch '/owners/:id' do
   #   ##### Bug Fix which enables removal of ALL pets
