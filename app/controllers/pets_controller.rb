@@ -45,7 +45,7 @@ class PetsController < ApplicationController
       binding.pry
       @pet.owner = owner
       @pet.save
-      
+
     elsif params[:pet][:owner_id] != @pet.owner_id
       @pet.owner_id = params[:owner_id]
       @pet.save
