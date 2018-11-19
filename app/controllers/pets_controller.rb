@@ -45,33 +45,8 @@ class PetsController < ApplicationController
       owner = Owner.create(name: params[:owner][:name])
       @pet.owner = owner
       @pet.save
-
-    # if params[:pet][:owner_id] != @pet.owner_id
-    #   @pet.owner_id = params[:owner_id]
-    #   @pet.save
     end
 
   end
-
-#   {"_method"=>"patch",
-# "pet"=>{"name"=>"Maddy", "owner_id"=>"6"},
-# "owner"=>{"name"=>"BBBBB"},
-# "id"=>"1"}
-
-  # patch '/owners/:id' do
-  #   ##### Bug Fix which enables removal of ALL pets
-  #   if !params[:owner].keys.include?("pet_ids")
-  #     params[:owner]["pet_ids"] = []
-  #   end
-  #   #####
-  #   @owner = Owner.find(params[:id])
-  #   @owner.update(params[:owner])
-  #   if !params["pet"]["name"].empty?
-  #     @owner.pets << Pet.create(name: params["pet"]["name"])
-  #   end
-  #   redirect "owners/#{@owner.id}"
-  # end
-
-
 
 end
